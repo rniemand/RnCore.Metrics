@@ -12,6 +12,8 @@ public static class ServiceCollectionExtensions
     services.TryAddScoped(typeof(ILoggerAdapter<>), typeof(LoggerAdapter<>));
 
     return services
+      .AddSingleton<IMetricsService, MetricsService>()
+
       .AddLogging(loggingBuilder =>
       {
         loggingBuilder.ClearProviders();

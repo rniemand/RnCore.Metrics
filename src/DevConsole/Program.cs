@@ -11,3 +11,4 @@ ServiceProvider serviceProvider = new ServiceCollection()
 serviceProvider
   .GetRequiredService<ILoggerAdapter<Program>>()
   .LogInformation("Hello World");
+
