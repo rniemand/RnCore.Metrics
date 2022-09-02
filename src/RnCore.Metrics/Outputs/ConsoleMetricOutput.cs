@@ -8,20 +8,19 @@ public class ConsoleMetricOutput : IMetricOutput
   public bool Enabled { get; }
   public string Name => nameof(ConsoleMetricOutput);
 
-  public ConsoleMetricOutput()
+  public ConsoleMetricOutput(IRnMetricsConfigProvider configProvider)
   {
-    // TODO: re-enable this
-    Enabled = false;
+    Enabled = configProvider.Provide().EnableConsoleOutput;
   }
 
   public async Task SubmitMetric(RnCoreMetric metric) =>
-  await SubmitMetrics(new List<RnCoreMetric> { metric });
+    await SubmitMetrics(new List<RnCoreMetric> { metric });
 
   public async Task SubmitMetrics(List<RnCoreMetric> metrics)
   {
     await Task.CompletedTask;
 
-    foreach (var metric in metrics)
+    foreach (RnCoreMetric metric in metrics)
     {
       Console.ForegroundColor = ConsoleColor.Green;
       Console.WriteLine(ProcessMetric(metric));
@@ -38,7 +37,7 @@ public class ConsoleMetricOutput : IMetricOutput
       .Append('"')
       .Append(GenerateTagsString(metric))
       .Append(GenerateFieldsString(metric))
-    .ToString();
+      .ToString();
   }
 
   private static string GenerateTagsString(RnCoreMetric metric)
@@ -53,6 +52,7 @@ public class ConsoleMetricOutput : IMetricOutput
         .Append(string.IsNullOrWhiteSpace(value) ? "NULL" : value)
         .ToString());
     }
+
     return " " + string.Join(", ", tags);
   }
 

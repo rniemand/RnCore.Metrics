@@ -1,13 +1,14 @@
 - [Home](./)
 - [External Projects](./external-projects.md)
-- [Metric Builders](./builders/README.md)
+- [Docsify Info](./docsify.md)
+- **Builders**
   - [CoreMetricBuilder](./builders/CoreMetricBuilder.md)
   - [ServiceMetricBuilder](./builders/ServiceMetricBuilder.md)
 - **Models**
   - [RnCoreMetric](./models/RnCoreMetric.md)
-- Outputs
+  - [RnMetricsConfig](./models/RnMetricsConfig.md)
+- **Outputs**
   - [IMetricOutput](./outputs/IMetricOutput.md)
   - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)
 - **Services**
   - [MetricsService](./services/MetricsService.md)
-- [Docsify Info](./docsify.md)

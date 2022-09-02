@@ -18,24 +18,25 @@ public class MetricsService : IMetricsService
 {
   private readonly ILoggerAdapter<MetricsService> _logger;
   private readonly IDateTimeAbstraction _dateTime;
-  //private readonly RnMetricsConfig _config;
+  private readonly RnMetricsConfig _config;
   private readonly List<IMetricOutput> _outputs;
 
   public MetricsService(
     ILoggerAdapter<MetricsService> logger,
     IDateTimeAbstraction dateTime,
-    IEnumerable<IMetricOutput> outputs)
+    IEnumerable<IMetricOutput> outputs,
+    IRnMetricsConfigProvider configProvider)
   {
     _logger = logger;
     _dateTime = dateTime;
-    //_config = config;
+    _config = configProvider.Provide();
 
-    //if (!_config.Enabled)
-    //{
-    //  _outputs = new List<IMetricOutput>();
-    //  _logger.LogInformation("Metric service disabled (via config)");
-    //  return;
-    //}
+    if (!_config.Enabled)
+    {
+      _outputs = new List<IMetricOutput>();
+      _logger.LogInformation("Metric service disabled (via config)");
+      return;
+    }
 
     _outputs = LoadMetricOutputs(outputs);
   }
@@ -43,16 +44,16 @@ public class MetricsService : IMetricsService
 
   public void Submit<TBuilder>(ICoreMetricBuilder<TBuilder> builder)
   {
-    //if (!_config.Enabled)
-    //  return;
+    if (!_config.Enabled)
+      return;
 
     Submit(builder.Build());
   }
 
   public void Submit(RnCoreMetric coreMetric)
   {
-    //if (!_config.Enabled)
-    //  return;
+    if (!_config.Enabled)
+      return;
 
     SubmitAsync(coreMetric)
       .ConfigureAwait(false)
@@ -62,8 +63,8 @@ public class MetricsService : IMetricsService
 
   public async Task SubmitAsync(RnCoreMetric coreMetric)
   {
-    //if (!_config.Enabled)
-    //  return;
+    if (!_config.Enabled)
+      return;
 
     var finalizedMetric = FinalizeMetric(coreMetric);
     foreach (var output in _outputs)
@@ -74,8 +75,8 @@ public class MetricsService : IMetricsService
 
   public async Task SubmitAsync<TBuilder>(ICoreMetricBuilder<TBuilder> builder)
   {
-    //if (!_config.Enabled)
-    //  return;
+    if (!_config.Enabled)
+      return;
 
     await SubmitAsync(builder.Build());
   }
@@ -90,7 +91,7 @@ public class MetricsService : IMetricsService
       if (enabledOutputs.Count == 0)
       {
         _logger.LogWarning("No enabled outputs, disabling metric service");
-        //_config.Enabled = false;
+        _config.Enabled = false;
         return new List<IMetricOutput>();
       }
 
@@ -105,7 +106,7 @@ public class MetricsService : IMetricsService
       _logger.LogError(ex, "Error loading metric outputs: {message}. {stack}",
         ex.Message);
 
-      //_config.Enabled = false;
+      _config.Enabled = false;
       return new List<IMetricOutput>();
     }
   }
@@ -114,22 +115,20 @@ public class MetricsService : IMetricsService
   {
     var measurement = coreMetric.Measurement;
 
-    //if (_config.Overrides.ContainsKey(coreMetric.Measurement))
-    //  measurement = _config.Overrides[coreMetric.Measurement];
+    if (_config.Overrides.ContainsKey(coreMetric.Measurement))
+      measurement = _config.Overrides[coreMetric.Measurement];
 
     return coreMetric
       .WithDate(_dateTime.UtcNow)
-      //.SetTag("environment", _config.Environment)
-      //.SetTag("application", _config.Application)
+      .SetTag("environment", _config.Environment)
+      .SetTag("application", _config.Application)
       .UpdateMeasurement(GenerateMeasurement(measurement));
   }
 
   private string GenerateMeasurement(string measurement)
   {
-    //return _config.Template
-    //  .Replace("{app}", _config.Application)
-    //  .Replace("{measurement}", measurement);
-
-    return measurement;
+    return _config.Template
+      .Replace("{app}", _config.Application)
+      .Replace("{measurement}", measurement);
   }
 }
