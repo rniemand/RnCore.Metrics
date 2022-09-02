@@ -1,2 +1,3 @@
 - [Home](./)
+- [External Projects](./external-projects.md)
 - [Docsify Info](./docsify.md)
