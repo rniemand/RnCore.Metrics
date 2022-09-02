@@ -6,6 +6,7 @@ namespace RnCore.Metrics.Models;
 public class RnCoreMetric
 {
   public string Measurement { get; private set; }
+  public DateTime UtcTimestamp { get; private set; }
   public DateTime Timestamp { get; private set; }
   public Dictionary<string, string> Tags { get; }
   public Dictionary<string, object> Fields { get; }
@@ -13,7 +14,7 @@ public class RnCoreMetric
   public RnCoreMetric(string measurement)
   {
     Measurement = measurement;
-    Timestamp = DateTime.MinValue;
+    SetTimestamp(DateTime.MinValue);
     Tags = new Dictionary<string, string>();
     Fields = new Dictionary<string, object>();
   }
@@ -138,9 +139,15 @@ public class RnCoreMetric
     return this;
   }
 
-  public RnCoreMetric WithDate(DateTime utcTimestamp)
+  public RnCoreMetric WithDate(DateTime timestamp)
   {
-    Timestamp = utcTimestamp;
+    SetTimestamp(timestamp);
     return this;
+  }
+
+  private void SetTimestamp(DateTime timestamp)
+  {
+    Timestamp = timestamp.Kind == DateTimeKind.Utc ? timestamp.ToLocalTime() : timestamp;
+    UtcTimestamp = Timestamp.ToUniversalTime();
   }
 }

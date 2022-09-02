@@ -7,6 +7,7 @@
   - [RnCoreMetric](./models/RnCoreMetric.md)
 - Outputs
   - [IMetricOutput](./outputs/IMetricOutput.md)
+  - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)
 - **Services**
   - [MetricsService](./services/MetricsService.md)
 - [Docsify Info](./docsify.md)
