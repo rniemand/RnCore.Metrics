@@ -5,6 +5,8 @@
   - [ServiceMetricBuilder](./builders/ServiceMetricBuilder.md)
 - **Models**
   - [RnCoreMetric](./models/RnCoreMetric.md)
+- Outputs
+  - [IMetricOutput](./outputs/IMetricOutput.md)
 - **Services**
   - [MetricsService](./services/MetricsService.md)
 - [Docsify Info](./docsify.md)

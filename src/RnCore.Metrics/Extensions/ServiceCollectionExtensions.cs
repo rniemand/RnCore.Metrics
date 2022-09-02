@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using RnCore.Logging;
+using RnCore.Metrics.Abstractions;
 
 namespace RnCore.Metrics.Extensions;
 
@@ -13,6 +14,7 @@ public static class ServiceCollectionExtensions
 
     return services
       .AddSingleton<IMetricsService, MetricsService>()
+      .AddSingleton<IDateTimeAbstraction, DateTimeAbstraction>()
 
       .AddLogging(loggingBuilder =>
       {
