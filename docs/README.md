@@ -4,6 +4,12 @@ Simple metrics solution for my applications.
 
 ## Basic Usage
 
+Using the [MetricsService](./services/MetricsService.md) is as simple as: `Registration`, `Injection` and `Submitting`.
+
+<!-- tabs:start -->
+
+#### **Registration**
+
 Register via `.AddRnCoreMetrics()` against your `IServiceCollection`:
 
 ```cs
@@ -12,6 +18,8 @@ ServiceProvider serviceProvider = new ServiceCollection()
   // ...
   .BuildServiceProvider();
 ```
+
+#### **Injection**
 
 Inject an instance of `IMetricsService` where you need it:
 
@@ -24,6 +32,8 @@ class MyService {
   }
 }
 ```
+
+#### **Submitting**
 
 Create and use a metric when you need to:
 
@@ -52,3 +62,8 @@ public void FooFunction() {
   }
 }
 ```
+
+<!-- tabs:end -->
+
+> [!TIP]
+> Please refer to [this page](./builders/CustomBuilder.md) for information on how to create your own metric builders.

@@ -5,6 +5,7 @@
   - [CoreMetricBuilder](./builders/CoreMetricBuilder.md)
   - [CoreMetricBuilderExtensions](./builders/CoreMetricBuilderExtensions.md)
   - [ServiceMetricBuilder](./builders/ServiceMetricBuilder.md)
+  - [Create a custom builder](./builders/CustomBuilder.md)
 - **Models**
   - [RnCoreMetric](./models/RnCoreMetric.md)
   - [RnMetricsConfig](./models/RnMetricsConfig.md)
