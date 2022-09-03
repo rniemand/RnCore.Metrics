@@ -12,13 +12,10 @@ Defaults to: `service_call`
 
 - service_name
 - service_method
-- category
-- sub_category
 
 ## Fields
 
-- query_count
-- results_count
+Nothing.
 
 ## Methods
 

@@ -30,11 +30,11 @@ public class ConsoleMetricOutput : IMetricOutput
 
   private static string ProcessMetric(RnCoreMetric metric)
   {
-    return new StringBuilder("[")
+    return new StringBuilder("Metric submitted:\n  (")
       .Append(metric.Timestamp.ToLocalTime().ToString("s"))
-      .Append("] \"")
+      .Append(") ")
       .Append(metric.Measurement)
-      .Append('"')
+      .Append("\n")
       .Append(GenerateTagsString(metric))
       .Append(GenerateFieldsString(metric))
       .ToString();
@@ -48,12 +48,12 @@ public class ConsoleMetricOutput : IMetricOutput
     var tags = new List<string>();
     foreach (var (key, value) in metric.Tags)
     {
-      tags.Add(new StringBuilder($"{key} => ")
+      tags.Add(new StringBuilder($"    - {key}: ")
         .Append(string.IsNullOrWhiteSpace(value) ? "NULL" : value)
         .ToString());
     }
 
-    return " " + string.Join(", ", tags);
+    return "  Tags:\n" + string.Join("\n", tags) + "\n";
   }
 
   private static string GenerateFieldsString(RnCoreMetric metric)
@@ -64,10 +64,10 @@ public class ConsoleMetricOutput : IMetricOutput
     var tags = new List<string>();
     foreach (var (key, value) in metric.Fields)
     {
-      tags.Add($"({key} => {FieldToString(value)})");
+      tags.Add($"    - {key}: {FieldToString(value)}");
     }
 
-    return " " + string.Join(" ", tags);
+    return "  Fields:\n" + string.Join("\n", tags) + "\n";
   }
 
   private static string FieldToString(object field)

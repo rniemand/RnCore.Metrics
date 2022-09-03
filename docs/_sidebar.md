@@ -3,6 +3,7 @@
 - [Docsify Info](./docsify.md)
 - **Builders**
   - [CoreMetricBuilder](./builders/CoreMetricBuilder.md)
+  - [CoreMetricBuilderExtensions](./builders/CoreMetricBuilderExtensions.md)
   - [ServiceMetricBuilder](./builders/ServiceMetricBuilder.md)
 - **Models**
   - [RnCoreMetric](./models/RnCoreMetric.md)

@@ -16,12 +16,18 @@ ServiceProvider serviceProvider = new ServiceCollection()
 var metricsService = serviceProvider.GetRequiredService<IMetricsService>();
 
 ServiceMetricBuilder builder = new ServiceMetricBuilder()
-  .ForService("MyService", "MyMethod");
+  .ForService("MyService", "MyMethod")
+  .WithCallCount(10)
+  .WithCategory("category", "subCategory", true)
+  .WithSuccess(true)
+  .WithResultsCount(10);
 
 using (builder.WithTiming())
 {
   await Task.Delay(125);
 }
+
+builder.WithException(new Exception("Whoops"));
 
 await metricsService.SubmitAsync(builder);
 
