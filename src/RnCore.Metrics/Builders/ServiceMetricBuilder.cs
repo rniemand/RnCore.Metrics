@@ -32,7 +32,7 @@ public sealed class ServiceMetricBuilder : CoreMetricBuilder<ServiceMetricBuilde
     SetException(ex);
     return this;
   }
-
+  
   public override RnCoreMetric Build()
   {
     // Append required metric tags

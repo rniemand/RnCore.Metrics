@@ -67,3 +67,18 @@ public void FooFunction() {
 
 > [!TIP]
 > Please refer to [this page](./builders/CustomBuilder.md) for information on how to create your own metric builders.
+
+
+## Development
+
+```bash
+.\ci-build.ps1 -project "RnCore.Metrics"
+.\ci-test.ps1
+```
+
+### GitHub Actions
+
+- `NUGET_API_KEY` = xxx
+- `SONAR_PROJECT` = xxx
+- `SONAR_HOST_URL` = xxx
+- `SONAR_TOKEN` = xxx
