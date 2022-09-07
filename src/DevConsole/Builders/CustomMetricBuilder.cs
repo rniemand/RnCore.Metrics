@@ -22,4 +22,3 @@ public sealed class CustomMetricBuilder : BaseMetricBuilder<CustomMetricBuilder>
     return this;
   }
 }
-
