@@ -90,13 +90,7 @@ public class RnMetric
     Fields[field] = value;
     return this;
   }
-
-  public RnMetric SetField(string field, sbyte value)
-  {
-    Fields[field] = value;
-    return this;
-  }
-
+  
   public RnMetric SetField(string field, byte value)
   {
     Fields[field] = value;
@@ -108,25 +102,7 @@ public class RnMetric
     Fields[field] = value;
     return this;
   }
-
-  public RnMetric SetField(string field, ushort value)
-  {
-    Fields[field] = value;
-    return this;
-  }
-
-  public RnMetric SetField(string field, uint value)
-  {
-    Fields[field] = value;
-    return this;
-  }
-
-  public RnMetric SetField(string field, ulong value)
-  {
-    Fields[field] = value;
-    return this;
-  }
-
+  
   public RnMetric SetField(string field, decimal value)
   {
     Fields[field] = value;

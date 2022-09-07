@@ -9,6 +9,7 @@
 - **Models**
   - [RnMetric](./models/RnMetric.md)
   - [RnCoreMetricsConfig](./models/RnCoreMetricsConfig.md)
+  - [MetricTimingToken](./models/MetricTimingToken.md)
 - **Outputs**
   - [IMetricOutput](./outputs/IMetricOutput.md)
   - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)
