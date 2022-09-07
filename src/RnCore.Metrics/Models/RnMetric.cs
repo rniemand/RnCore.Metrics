@@ -3,7 +3,7 @@ using RnCore.Metrics.Extensions;
 
 namespace RnCore.Metrics.Models;
 
-public class RnCoreMetric
+public class RnMetric
 {
   public string Measurement { get; private set; }
   public DateTime UtcTimestamp { get; private set; }
@@ -11,7 +11,7 @@ public class RnCoreMetric
   public Dictionary<string, string> Tags { get; }
   public Dictionary<string, object> Fields { get; }
 
-  public RnCoreMetric(string measurement)
+  public RnMetric(string measurement)
   {
     Measurement = measurement;
     SetTimestamp(DateTime.MinValue);
@@ -19,127 +19,127 @@ public class RnCoreMetric
     Fields = new Dictionary<string, object>();
   }
 
-  public RnCoreMetric UpdateMeasurement(string measurement)
+  public RnMetric UpdateMeasurement(string measurement)
   {
     Measurement = measurement;
     return this;
   }
 
-  public RnCoreMetric SetTag(string tag, string value, bool skipToLower = false)
+  public RnMetric SetTag(string tag, string value, bool skipToLower = false)
   {
     Tags[tag] = skipToLower ? value : value.LowerTrim();
     return this;
   }
 
-  public RnCoreMetric SetTag(string tag, bool value)
+  public RnMetric SetTag(string tag, bool value)
   {
     Tags[tag] = value ? "true" : "false";
     return this;
   }
 
-  public RnCoreMetric SetTag(string tag, int value)
+  public RnMetric SetTag(string tag, int value)
   {
     Tags[tag] = value.ToString("D");
     return this;
   }
 
-  public RnCoreMetric SetTag(string tag, long value)
+  public RnMetric SetTag(string tag, long value)
   {
     Tags[tag] = value.ToString("D");
     return this;
   }
 
-  public RnCoreMetric SetTag(string tag, double value)
+  public RnMetric SetTag(string tag, double value)
   {
     Tags[tag] = value.ToString(CultureInfo.InvariantCulture);
     return this;
   }
 
-  public RnCoreMetric SetTag(string tag, byte value)
+  public RnMetric SetTag(string tag, byte value)
   {
     Tags[tag] = value.ToString(CultureInfo.InvariantCulture);
     return this;
   }
 
-  public RnCoreMetric SetField(string field, long value)
+  public RnMetric SetField(string field, long value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, double value)
+  public RnMetric SetField(string field, double value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, float value)
+  public RnMetric SetField(string field, float value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, int value)
+  public RnMetric SetField(string field, int value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, bool value)
+  public RnMetric SetField(string field, bool value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, sbyte value)
+  public RnMetric SetField(string field, sbyte value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, byte value)
+  public RnMetric SetField(string field, byte value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, short value)
+  public RnMetric SetField(string field, short value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, ushort value)
+  public RnMetric SetField(string field, ushort value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, uint value)
+  public RnMetric SetField(string field, uint value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, ulong value)
+  public RnMetric SetField(string field, ulong value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, decimal value)
+  public RnMetric SetField(string field, decimal value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric SetField(string field, TimeSpan value)
+  public RnMetric SetField(string field, TimeSpan value)
   {
     Fields[field] = value;
     return this;
   }
 
-  public RnCoreMetric WithDate(DateTime timestamp)
+  public RnMetric WithDate(DateTime timestamp)
   {
     SetTimestamp(timestamp);
     return this;

@@ -6,8 +6,8 @@ More to come...
 public interface IMetricsService
 {
   void Submit<TBuilder>(ICoreMetricBuilder<TBuilder> builder);
-  void Submit(RnCoreMetric coreMetric);
-  Task SubmitAsync(RnCoreMetric coreMetric);
+  void Submit(RnMetric coreMetric);
+  Task SubmitAsync(RnMetric coreMetric);
   Task SubmitAsync<TBuilder>(ICoreMetricBuilder<TBuilder> builder);
 }
 ```

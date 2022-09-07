@@ -8,10 +8,10 @@ namespace RnCore.Metrics;
 
 public interface IMetricsService
 {
-  void Submit<TBuilder>(ICoreMetricBuilder<TBuilder> builder);
-  void Submit(RnCoreMetric coreMetric);
-  Task SubmitAsync(RnCoreMetric coreMetric);
-  Task SubmitAsync<TBuilder>(ICoreMetricBuilder<TBuilder> builder);
+  void Submit<TBuilder>(IBaseMetricBuilder<TBuilder> builder);
+  void Submit(RnMetric metric);
+  Task SubmitAsync(RnMetric metric);
+  Task SubmitAsync<TBuilder>(IBaseMetricBuilder<TBuilder> builder);
 }
 
 public class MetricsService : IMetricsService
@@ -42,7 +42,7 @@ public class MetricsService : IMetricsService
   }
 
 
-  public void Submit<TBuilder>(ICoreMetricBuilder<TBuilder> builder)
+  public void Submit<TBuilder>(IBaseMetricBuilder<TBuilder> builder)
   {
     if (!_config.Enabled)
       return;
@@ -50,30 +50,30 @@ public class MetricsService : IMetricsService
     Submit(builder.Build());
   }
 
-  public void Submit(RnCoreMetric coreMetric)
+  public void Submit(RnMetric metric)
   {
     if (!_config.Enabled)
       return;
 
-    SubmitAsync(coreMetric)
+    SubmitAsync(metric)
       .ConfigureAwait(false)
       .GetAwaiter()
       .GetResult();
   }
 
-  public async Task SubmitAsync(RnCoreMetric coreMetric)
+  public async Task SubmitAsync(RnMetric metric)
   {
     if (!_config.Enabled)
       return;
 
-    var finalizedMetric = FinalizeMetric(coreMetric);
+    var finalizedMetric = FinalizeMetric(metric);
     foreach (var output in _outputs)
     {
       await output.SubmitMetric(finalizedMetric);
     }
   }
 
-  public async Task SubmitAsync<TBuilder>(ICoreMetricBuilder<TBuilder> builder)
+  public async Task SubmitAsync<TBuilder>(IBaseMetricBuilder<TBuilder> builder)
   {
     if (!_config.Enabled)
       return;
@@ -111,14 +111,14 @@ public class MetricsService : IMetricsService
     }
   }
 
-  private RnCoreMetric FinalizeMetric(RnCoreMetric coreMetric)
+  private RnMetric FinalizeMetric(RnMetric metric)
   {
-    var measurement = coreMetric.Measurement;
+    var measurement = metric.Measurement;
 
-    if (_config.Overrides.ContainsKey(coreMetric.Measurement))
-      measurement = _config.Overrides[coreMetric.Measurement];
+    if (_config.Overrides.ContainsKey(metric.Measurement))
+      measurement = _config.Overrides[metric.Measurement];
 
-    return coreMetric
+    return metric
       .WithDate(_dateTime.UtcNow)
       .SetTag("environment", _config.Environment)
       .SetTag("application", _config.Application)

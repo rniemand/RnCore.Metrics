@@ -13,14 +13,14 @@ public class ConsoleMetricOutput : IMetricOutput
     Enabled = configProvider.Provide().EnableConsoleOutput;
   }
 
-  public async Task SubmitMetric(RnCoreMetric metric) =>
-    await SubmitMetrics(new List<RnCoreMetric> { metric });
+  public async Task SubmitMetric(RnMetric metric) =>
+    await SubmitMetrics(new List<RnMetric> { metric });
 
-  public async Task SubmitMetrics(List<RnCoreMetric> metrics)
+  public async Task SubmitMetrics(List<RnMetric> metrics)
   {
     await Task.CompletedTask;
 
-    foreach (RnCoreMetric metric in metrics)
+    foreach (RnMetric metric in metrics)
     {
       Console.ForegroundColor = ConsoleColor.Green;
       Console.WriteLine(ProcessMetric(metric));
@@ -28,7 +28,7 @@ public class ConsoleMetricOutput : IMetricOutput
     }
   }
 
-  private static string ProcessMetric(RnCoreMetric metric)
+  private static string ProcessMetric(RnMetric metric)
   {
     return new StringBuilder("Metric submitted:\n  (")
       .Append(metric.Timestamp.ToLocalTime().ToString("s"))
@@ -40,7 +40,7 @@ public class ConsoleMetricOutput : IMetricOutput
       .ToString();
   }
 
-  private static string GenerateTagsString(RnCoreMetric metric)
+  private static string GenerateTagsString(RnMetric metric)
   {
     if (metric.Tags.Count == 0)
       return string.Empty;
@@ -56,7 +56,7 @@ public class ConsoleMetricOutput : IMetricOutput
     return "  Tags:\n" + string.Join("\n", tags) + "\n";
   }
 
-  private static string GenerateFieldsString(RnCoreMetric metric)
+  private static string GenerateFieldsString(RnMetric metric)
   {
     if (metric.Fields.Count == 0)
       return string.Empty;

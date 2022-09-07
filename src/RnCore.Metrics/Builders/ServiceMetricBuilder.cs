@@ -33,7 +33,7 @@ public sealed class ServiceMetricBuilder : BaseMetricBuilder<ServiceMetricBuilde
     return this;
   }
   
-  public override RnCoreMetric Build()
+  public override RnMetric Build()
   {
     // Append required metric tags
     AddAction(m => { m.SetTag("service_name", _serviceName, true); })

@@ -7,7 +7,7 @@
   - [ServiceMetricBuilder](./builders/ServiceMetricBuilder.md)
   - [Create a custom builder](./builders/CustomBuilder.md)
 - **Models**
-  - [RnCoreMetric](./models/RnCoreMetric.md)
+  - [RnMetric](./models/RnMetric.md)
   - [RnMetricsConfig](./models/RnMetricsConfig.md)
 - **Outputs**
   - [IMetricOutput](./outputs/IMetricOutput.md)

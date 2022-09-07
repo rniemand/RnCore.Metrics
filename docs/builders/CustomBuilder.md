@@ -64,7 +64,7 @@ public CustomMetricBuilder IncrementCounter(int amount = 1)
 Finally add a `Build()` method to handle any custom logic that you may need to handle:
 
 ```cs
-public override RnCoreMetric Build()
+public override RnMetric Build()
 {
   AddAction(m => { m.SetField("my_counter", _myCounter); });
   return base.Build();

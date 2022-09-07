@@ -1,4 +1,4 @@
-# RnCoreMetric
+# RnMetric
 
 More to come...
 
