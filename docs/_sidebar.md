@@ -3,9 +3,9 @@
 - [Docsify Info](./docsify.md)
 - **Builders**
   - [BaseMetricBuilder](./builders/BaseMetricBuilder.md)
-  - [CoreMetricBuilderExtensions](./builders/CoreMetricBuilderExtensions.md)
-  - [ServiceMetricBuilder](./builders/ServiceMetricBuilder.md)
-  - [Create a custom builder](./builders/CustomBuilder.md)
+  - [BaseMetricBuilderExtensions](./builders/BaseMetricBuilderExtensions.md)
+  - [Custom Metric Builders](./builders/CustomBuilder.md)
+  - [Custom Metric Builder Extensions](./builders/CustomBuilderExtensions.md)
 - **Models**
   - [RnMetric](./models/RnMetric.md)
   - [RnCoreMetricsConfig](./models/RnCoreMetricsConfig.md)

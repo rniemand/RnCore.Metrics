@@ -16,10 +16,7 @@ ServiceProvider serviceProvider = new ServiceCollection()
 var metricsService = serviceProvider.GetRequiredService<IMetricsService>();
 
 CustomMetricBuilder builder = new CustomMetricBuilder()
-  .WithCallCount(10)
-  .WithCategory("category", "subCategory", true)
-  .WithSuccess(true)
-  .WithResultsCount(10);
+  .WithSuccess(true);
 
 using (builder.WithTiming())
 {

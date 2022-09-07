@@ -1,4 +1,4 @@
-# Creating a custom Metric Builder
+# Custom Metric Builders
 Creating a custom metric builder for your project is as simple as following the below steps.
 
 <!-- tabs:start -->
@@ -94,9 +94,17 @@ public sealed class CustomMetricBuilder : BaseMetricBuilder<CustomMetricBuilder>
 Assuming that the builder is used like so:
 
 ```cs
-await _metricsService.SubmitAsync(new CustomMetricBuilder()
+var builder = new CustomMetricBuilder()
   .WithCustomTag("Hello")
-  .WithCustomField(10));
+  .WithCustomField(10);
+
+using (builder.WithTiming())
+  await Task.Delay(125);
+
+using (builder.WithTiming("timing2"))
+  await Task.Delay(125);
+
+await _metricsService.SubmitAsync(builder);
 ```
 
  When `.Build()` is called the following values will be exposed on the returned [RnMetric](./models/RnMetric.md) object:
@@ -110,9 +118,11 @@ await _metricsService.SubmitAsync(new CustomMetricBuilder()
    - ex_name: `string.Empty`
    - my_tag: `Hello`
  - **Fields**
-   - my_field: `10`
+   - my_field: `10` (int)
+   - value: `~125` (long)
+   - timing2: `~125` (long)
 
 <!-- tabs:end -->
 
 > [!TIP]
-> Be sure to check out the [CoreMetricBuilderExtensions](./builders/CoreMetricBuilderExtensions.md) class as it provides a lot of useful default builder methods that can be applied to your metric builder.
+> Be sure to check out the [BaseMetricBuilderExtensions](./builders/BaseMetricBuilderExtensions.md) class as it provides a lot of useful default builder methods that can be applied to your metric builder.
