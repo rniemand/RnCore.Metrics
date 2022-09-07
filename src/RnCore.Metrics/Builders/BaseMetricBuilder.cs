@@ -2,7 +2,7 @@ using RnCore.Metrics.Models;
 
 namespace RnCore.Metrics.Builders;
 
-public class CoreMetricBuilder<TBuilder> : ICoreMetricBuilder<TBuilder>
+public abstract class BaseMetricBuilder<TBuilder> : ICoreMetricBuilder<TBuilder>
 {
   private readonly List<Action<RnCoreMetric>> _actions = new();
   private readonly string _measurement;
@@ -11,7 +11,7 @@ public class CoreMetricBuilder<TBuilder> : ICoreMetricBuilder<TBuilder>
   private bool _hasException;
   private string _exName = string.Empty;
 
-  public CoreMetricBuilder(string measurement)
+  protected BaseMetricBuilder(string measurement)
   {
     _measurement = measurement;
   }

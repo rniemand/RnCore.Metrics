@@ -2,7 +2,7 @@
 - [External Projects](./external-projects.md)
 - [Docsify Info](./docsify.md)
 - **Builders**
-  - [CoreMetricBuilder](./builders/CoreMetricBuilder.md)
+  - [BaseMetricBuilder](./builders/BaseMetricBuilder.md)
   - [CoreMetricBuilderExtensions](./builders/CoreMetricBuilderExtensions.md)
   - [ServiceMetricBuilder](./builders/ServiceMetricBuilder.md)
   - [Create a custom builder](./builders/CustomBuilder.md)

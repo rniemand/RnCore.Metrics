@@ -3,7 +3,7 @@ using RnCore.Metrics.Models;
 
 namespace RnCore.Metrics.Builders;
 
-public sealed class ServiceMetricBuilder : CoreMetricBuilder<ServiceMetricBuilder>
+public sealed class ServiceMetricBuilder : BaseMetricBuilder<ServiceMetricBuilder>
 {
   private string _serviceName = string.Empty;
   private string _methodName = string.Empty;

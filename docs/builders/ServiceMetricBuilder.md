@@ -2,7 +2,7 @@
 
 More to come.
 
-Inherits from [CoreMetricBuilder](./builders/CoreMetricBuilder.md)
+Inherits from [BaseMetricBuilder](./builders/BaseMetricBuilder.md)
 
 ## Measurement
 
