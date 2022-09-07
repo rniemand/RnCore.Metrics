@@ -14,7 +14,7 @@ public static class ServiceCollectionExtensions
     services.TryAddScoped(typeof(ILoggerAdapter<>), typeof(LoggerAdapter<>));
 
     if (useDefaultConfigProvider)
-      services.AddSingleton<IRnMetricsConfigProvider, RnMetricsConfigProvider>();
+      services.AddSingleton<IRnCoreMetricsConfigProvider, RnCoreMetricsConfigProvider>();
 
     return services
       .AddSingleton<IMetricsService, MetricsService>()

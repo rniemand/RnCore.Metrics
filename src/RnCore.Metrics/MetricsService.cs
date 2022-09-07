@@ -18,14 +18,14 @@ public class MetricsService : IMetricsService
 {
   private readonly ILoggerAdapter<MetricsService> _logger;
   private readonly IDateTimeAbstraction _dateTime;
-  private readonly RnMetricsConfig _config;
+  private readonly RnCoreMetricsConfig _config;
   private readonly List<IMetricOutput> _outputs;
 
   public MetricsService(
     ILoggerAdapter<MetricsService> logger,
     IDateTimeAbstraction dateTime,
     IEnumerable<IMetricOutput> outputs,
-    IRnMetricsConfigProvider configProvider)
+    IRnCoreMetricsConfigProvider configProvider)
   {
     _logger = logger;
     _dateTime = dateTime;

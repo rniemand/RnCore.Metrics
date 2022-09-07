@@ -8,7 +8,7 @@
   - [Create a custom builder](./builders/CustomBuilder.md)
 - **Models**
   - [RnMetric](./models/RnMetric.md)
-  - [RnMetricsConfig](./models/RnMetricsConfig.md)
+  - [RnCoreMetricsConfig](./models/RnCoreMetricsConfig.md)
 - **Outputs**
   - [IMetricOutput](./outputs/IMetricOutput.md)
   - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)
