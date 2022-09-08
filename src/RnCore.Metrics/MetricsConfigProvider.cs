@@ -5,16 +5,16 @@ using RnCore.Metrics.Extensions;
 
 namespace RnCore.Metrics;
 
-public interface IRnCoreMetricsConfigProvider
+public interface IMetricsConfigProvider
 {
   RnCoreMetricsConfig Provide();
 }
 
-public class RnCoreMetricsConfigProvider : IRnCoreMetricsConfigProvider
+public class MetricsConfigProvider : IMetricsConfigProvider
 {
   private readonly RnCoreMetricsConfig _config;
 
-  public RnCoreMetricsConfigProvider(IConfiguration configuration)
+  public MetricsConfigProvider(IConfiguration configuration)
   {
     _config = GetRnMetricsConfig(configuration);
   }

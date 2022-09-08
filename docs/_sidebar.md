@@ -6,12 +6,12 @@
   - [BaseMetricBuilderExtensions](./builders/BaseMetricBuilderExtensions.md)
   - [Custom Metric Builders](./builders/CustomBuilder.md)
   - [Custom Metric Builder Extensions](./builders/CustomBuilderExtensions.md)
-- **Models**
+- **Models & Interfaces**
+  - [IMetricOutput](./models/IMetricOutput.md)
   - [RnMetric](./models/RnMetric.md)
   - [RnCoreMetricsConfig](./models/RnCoreMetricsConfig.md)
   - [MetricTimingToken](./models/MetricTimingToken.md)
 - **Outputs**
-  - [IMetricOutput](./outputs/IMetricOutput.md)
   - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)
   - [InfluxDbMetricOutput](./outputs/InfluxDbMetricOutput.md)
 - **Services**
