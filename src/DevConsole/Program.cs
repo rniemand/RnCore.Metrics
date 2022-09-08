@@ -1,26 +1,26 @@
+using DevConsole;
+using DevConsole.Builders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RnCore.Metrics;
-using RnCore.Metrics.Builders;
 using RnCore.Metrics.Extensions;
+using RnCore.Metrics.Outputs;
 
 IConfigurationRoot config = new ConfigurationBuilder()
   .AddJsonFile("appsettings.json")
+  .AddJsonFile("appsettings.machine.json", optional: true)
   .Build();
 
 ServiceProvider serviceProvider = new ServiceCollection()
   .AddSingleton<IConfiguration>(config)
   .AddRnCoreMetrics()
+  .AddSingleton<IMetricOutput, InfluxDbOutput>()
   .BuildServiceProvider();
 
 var metricsService = serviceProvider.GetRequiredService<IMetricsService>();
 
-ServiceMetricBuilder builder = new ServiceMetricBuilder()
-  .ForService("MyService", "MyMethod")
-  .WithCallCount(10)
-  .WithCategory("category", "subCategory", true)
-  .WithSuccess(true)
-  .WithResultsCount(10);
+CustomMetricBuilder builder = new CustomMetricBuilder()
+  .WithSuccess(true);
 
 using (builder.WithTiming())
 {

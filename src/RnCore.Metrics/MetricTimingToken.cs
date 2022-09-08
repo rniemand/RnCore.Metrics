@@ -7,11 +7,11 @@ public interface IMetricTimingToken : IDisposable { }
 
 public class MetricTimingToken<TBuilder> : IMetricTimingToken
 {
-  private readonly ICoreMetricBuilder<TBuilder> _builder;
+  private readonly IBaseMetricBuilder<TBuilder> _builder;
   private readonly string _fieldName;
   private readonly Stopwatch _stopwatch;
 
-  public MetricTimingToken(ICoreMetricBuilder<TBuilder> builder, string fieldName)
+  public MetricTimingToken(IBaseMetricBuilder<TBuilder> builder, string fieldName)
   {
     _builder = builder;
     _fieldName = fieldName;

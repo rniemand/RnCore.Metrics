@@ -2,7 +2,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace RnCore.Metrics.Models;
 
-public class RnMetricsConfig
+public class RnCoreMetricsConfig
 {
   public const string ConfigKey = "Rn.Metrics";
 

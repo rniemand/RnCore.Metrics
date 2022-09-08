@@ -1,10 +1,10 @@
-# RnMetricsConfig
+# RnCoreMetricsConfig
 
 Global configuration used with **RnCore.Metrics**.
 
 ## JSON Configuration
 
-If you are using the default implimentation of the `IRnMetricsConfigProvider`
+If you are using the default implimentation of the `IRnCoreMetricsConfigProvider`
 
 ```json
 {

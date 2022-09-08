@@ -2,13 +2,14 @@
 - [External Projects](./external-projects.md)
 - [Docsify Info](./docsify.md)
 - **Builders**
-  - [CoreMetricBuilder](./builders/CoreMetricBuilder.md)
-  - [CoreMetricBuilderExtensions](./builders/CoreMetricBuilderExtensions.md)
-  - [ServiceMetricBuilder](./builders/ServiceMetricBuilder.md)
-  - [Create a custom builder](./builders/CustomBuilder.md)
+  - [BaseMetricBuilder](./builders/BaseMetricBuilder.md)
+  - [BaseMetricBuilderExtensions](./builders/BaseMetricBuilderExtensions.md)
+  - [Custom Metric Builders](./builders/CustomBuilder.md)
+  - [Custom Metric Builder Extensions](./builders/CustomBuilderExtensions.md)
 - **Models**
-  - [RnCoreMetric](./models/RnCoreMetric.md)
-  - [RnMetricsConfig](./models/RnMetricsConfig.md)
+  - [RnMetric](./models/RnMetric.md)
+  - [RnCoreMetricsConfig](./models/RnCoreMetricsConfig.md)
+  - [MetricTimingToken](./models/MetricTimingToken.md)
 - **Outputs**
   - [IMetricOutput](./outputs/IMetricOutput.md)
   - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)

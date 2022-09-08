@@ -2,21 +2,21 @@ using RnCore.Metrics.Models;
 
 namespace RnCore.Metrics.Builders;
 
-public class CoreMetricBuilder<TBuilder> : ICoreMetricBuilder<TBuilder>
+public abstract class BaseMetricBuilder<TBuilder> : IBaseMetricBuilder<TBuilder>
 {
-  private readonly List<Action<RnCoreMetric>> _actions = new();
+  private readonly List<Action<RnMetric>> _actions = new();
   private readonly string _measurement;
 
   private bool _success;
   private bool _hasException;
   private string _exName = string.Empty;
 
-  public CoreMetricBuilder(string measurement)
+  protected BaseMetricBuilder(string measurement)
   {
     _measurement = measurement;
   }
 
-  public ICoreMetricBuilder<TBuilder> AddAction(Action<RnCoreMetric> action)
+  public IBaseMetricBuilder<TBuilder> AddAction(Action<RnMetric> action)
   {
     _actions.Add(action);
     return this;
@@ -37,7 +37,7 @@ public class CoreMetricBuilder<TBuilder> : ICoreMetricBuilder<TBuilder>
     _exName = exceptionName;
   }
 
-  public virtual RnCoreMetric Build()
+  public virtual RnMetric Build()
   {
     // Ensure that core fields and tags exist
     AddAction(m => { m.SetTag("success", _success); })
@@ -45,7 +45,7 @@ public class CoreMetricBuilder<TBuilder> : ICoreMetricBuilder<TBuilder>
       .AddAction(m => { m.SetTag("ex_name", _exName, true); });
 
     // Compile and build the metric
-    var metric = new RnCoreMetric(_measurement);
+    var metric = new RnMetric(_measurement);
     _actions.ForEach(a => a(metric));
     return metric;
   }
