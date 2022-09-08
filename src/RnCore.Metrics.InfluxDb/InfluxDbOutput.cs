@@ -1,7 +1,6 @@
 using InfluxDB.Client;
 using InfluxDB.Client.Api.Domain;
 using InfluxDB.Client.Writes;
-using Microsoft.Extensions.Configuration;
 using RnCore.Metrics.Models;
 using RnCore.Metrics.Outputs;
 
@@ -15,9 +14,9 @@ public class InfluxDbOutput : IMetricOutput
 
   private readonly InfluxDbOutputConfig _config;
 
-  public InfluxDbOutput(IConfiguration configuration)
+  public InfluxDbOutput(IInfluxDbOutputConfigProvider configProvider)
   {
-    _config = GetConfiguration(configuration);
+    _config = configProvider.GetConfig();
     Enabled = _config.Enabled;
   }
 
@@ -36,28 +35,15 @@ public class InfluxDbOutput : IMetricOutput
 
     using var client = GetClient();
     using var writeApi = client.GetWriteApi();
+
     foreach (RnMetric metric in metrics)
-    {
       writeApi.WritePoint(BuildPointData(metric), _config.Bucket, _config.Org);
-    }
 
     await Task.CompletedTask;
   }
 
 
   // Internal methods
-  private static InfluxDbOutputConfig GetConfiguration(IConfiguration configuration)
-  {
-    var config = new InfluxDbOutputConfig();
-
-    var section = configuration.GetSection(InfluxDbOutputConfig.ConfigKey);
-    if (!section.Exists())
-      return config;
-
-    section.Bind(config);
-    return config;
-  }
-
   private IInfluxDBClient GetClient() =>
     InfluxDBClientFactory.Create(_config.Url, _config.Token);
 
