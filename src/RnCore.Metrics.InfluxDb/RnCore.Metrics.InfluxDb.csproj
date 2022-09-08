@@ -18,6 +18,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="InfluxDB.Client" Version="4.5.0" />
     <PackageReference Include="RnCore.Metrics" Version="6.0.0.101" />
   </ItemGroup>
