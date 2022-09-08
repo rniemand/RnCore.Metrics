@@ -9,6 +9,7 @@
 - Microsoft.Extensions.Configuration.Json
 - Microsoft.Extensions.Logging.Console
 
-### Personal NuGet Projects
+## Personal NuGet Projects
 
-- [RnCore.Logging](https://github.com/rniemand/RnCore.Logging)
+- [RnCore.Logging](https://github.com/rniemand/RnCore.Logging) - simple logging abstractions
+- [RnCore.Metrics.InfluxDb](https://github.com/rniemand/RnCore.Metrics) - InfluxDB Metrics Output
