@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using RnCore.Metrics;
 using RnCore.Metrics.Extensions;
 using RnCore.Metrics.InfluxDb;
-using RnCore.Metrics.Outputs;
 
 IConfigurationRoot config = new ConfigurationBuilder()
   .AddJsonFile("appsettings.json")
@@ -14,7 +13,7 @@ IConfigurationRoot config = new ConfigurationBuilder()
 ServiceProvider serviceProvider = new ServiceCollection()
   .AddSingleton<IConfiguration>(config)
   .AddRnCoreMetrics()
-  .AddSingleton<IMetricOutput, InfluxDbOutput>()
+  .AddRnCoreMetricsInfluxDb()
   .BuildServiceProvider();
 
 var metricsService = serviceProvider.GetRequiredService<IMetricsService>();
