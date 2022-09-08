@@ -13,5 +13,6 @@
 - **Outputs**
   - [IMetricOutput](./outputs/IMetricOutput.md)
   - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)
+  - [InfluxDbMetricOutput](./outputs/InfluxDbMetricOutput.md)
 - **Services**
   - [MetricsService](./services/MetricsService.md)

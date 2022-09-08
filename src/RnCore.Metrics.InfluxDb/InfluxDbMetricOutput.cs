@@ -6,15 +6,15 @@ using RnCore.Metrics.Outputs;
 
 namespace RnCore.Metrics.InfluxDb;
 
-public class InfluxDbOutput : IMetricOutput
+public class InfluxDbMetricOutput : IMetricOutput
 {
   public bool Enabled { get; }
 
-  public string Name => nameof(InfluxDbOutput);
+  public string Name => nameof(InfluxDbMetricOutput);
 
   private readonly InfluxDbOutputConfig _config;
 
-  public InfluxDbOutput(IInfluxDbOutputConfigProvider configProvider)
+  public InfluxDbMetricOutput(IInfluxDbOutputConfigProvider configProvider)
   {
     _config = configProvider.GetConfig();
     Enabled = _config.Enabled;
