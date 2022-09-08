@@ -15,6 +15,7 @@
     <RepositoryUrl>https://github.com/rniemand/RnCore.Metrics</RepositoryUrl>
     <AssemblyName>RnCore.Metrics</AssemblyName>
     <Version>6.0.0.101</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
