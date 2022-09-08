@@ -1,4 +1,4 @@
-# RnCoreMetricsConfig
+# MetricsConfig
 
 Global configuration used with **RnCore.Metrics**.
 
@@ -8,7 +8,7 @@ If you are using the default implimentation of the `IMetricsConfigProvider`
 
 ```json
 {
-  "Rn.Metrics": {
+  "RnCore.Metrics": {
     "application": "MyApplication",
     "enabled": true,
     "enableConsoleOutput": true,

@@ -24,7 +24,7 @@ Add in required configuration:
 
 ```json
 {
-  "Rn.Metrics.InfluxDb": {
+  "RnCore.Metrics.InfluxDb": {
     "token": "",
     "bucket": "default",
     "org": "",

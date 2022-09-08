@@ -4,7 +4,7 @@ namespace RnCore.Metrics.InfluxDb;
 
 public class InfluxDbOutputConfig
 {
-  public const string ConfigKey = "Rn.Metrics.InfluxDb";
+  public const string ConfigKey = "RnCore.Metrics.InfluxDb";
 
   [ConfigurationKeyName("token")]
   public string Token { get; set; } = string.Empty;

@@ -18,7 +18,7 @@ public class MetricsService : IMetricsService
 {
   private readonly ILoggerAdapter<MetricsService> _logger;
   private readonly IDateTimeAbstraction _dateTime;
-  private readonly RnCoreMetricsConfig _config;
+  private readonly MetricsConfig _config;
   private readonly List<IMetricOutput> _outputs;
 
   public MetricsService(
