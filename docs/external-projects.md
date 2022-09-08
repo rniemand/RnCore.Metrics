@@ -8,6 +8,7 @@
 - Microsoft.Extensions.Configuration.Binder
 - Microsoft.Extensions.Configuration.Json
 - Microsoft.Extensions.Logging.Console
+- InfluxDB.Client
 
 ## Personal NuGet Projects
 
