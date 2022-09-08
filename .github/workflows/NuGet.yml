@@ -14,15 +14,15 @@ jobs:
           fetch-depth: 0
           
       # RnCore.Metrics
-      - name: Build
+      - name: "Build: RnCore.Metrics"
         run: dotnet build -c Release src/RnCore.Metrics/RnCore.Metrics.csproj
-      - name: Package
+      - name: "Package: RnCore.Metrics"
         run: dotnet pack -c Release -o . src/RnCore.Metrics/RnCore.Metrics.csproj
         
       # RnCore.Metrics.InfluxDb
-      - name: Build
+      - name: "Build: RnCore.Metrics.InfluxDb"
         run: dotnet build -c Release src/RnCore.Metrics.InfluxDb/RnCore.Metrics.InfluxDb.csproj
-      - name: Package
+      - name: "Package: RnCore.Metrics.InfluxDb"
         run: dotnet pack -c Release -o . src/RnCore.Metrics.InfluxDb/RnCore.Metrics.InfluxDb.csproj
         
       # Blindly publish everything :/
