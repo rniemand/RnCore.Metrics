@@ -5,27 +5,7 @@ using Microsoft.Extensions.Configuration;
 using RnCore.Metrics.Models;
 using RnCore.Metrics.Outputs;
 
-namespace DevConsole;
-
-public class InfluxDbOutputConfig
-{
-  public const string ConfigKey = "Rn.Metrics.InfluxDb";
-
-  [ConfigurationKeyName("token")]
-  public string Token { get; set; } = string.Empty;
-
-  [ConfigurationKeyName("bucket")]
-  public string Bucket { get; set; } = string.Empty;
-
-  [ConfigurationKeyName("org")]
-  public string Org { get; set; } = string.Empty;
-
-  [ConfigurationKeyName("url")]
-  public string Url { get; set; } = string.Empty;
-
-  [ConfigurationKeyName("enabled")]
-  public bool Enabled { get; set; }
-}
+namespace RnCore.Metrics.InfluxDb;
 
 public class InfluxDbOutput : IMetricOutput
 {

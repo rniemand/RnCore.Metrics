@@ -1,9 +1,9 @@
-using DevConsole;
 using DevConsole.Builders;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RnCore.Metrics;
 using RnCore.Metrics.Extensions;
+using RnCore.Metrics.InfluxDb;
 using RnCore.Metrics.Outputs;
 
 IConfigurationRoot config = new ConfigurationBuilder()
