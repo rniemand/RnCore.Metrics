@@ -1,5 +1,5 @@
 - [Home](./)
-- [Development](./Development.md)
+- [Development](./development.md)
 - [External Projects](./external-projects.md)
 - **Builders**
   - [BaseMetricBuilder](./builders/BaseMetricBuilder.md)
@@ -11,8 +11,7 @@
   - [RnMetric](./models/RnMetric.md)
   - [MetricsConfig](./models/MetricsConfig.md)
   - [MetricTimingToken](./models/MetricTimingToken.md)
+  - [MetricsService](./models/MetricsService.md)
 - **Outputs**
   - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)
   - [InfluxDbMetricOutput](./outputs/InfluxDbMetricOutput.md)
-- **Services**
-  - [MetricsService](./services/MetricsService.md)
