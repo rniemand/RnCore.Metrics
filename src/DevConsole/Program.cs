@@ -13,7 +13,7 @@ IConfigurationRoot config = new ConfigurationBuilder()
 ServiceProvider serviceProvider = new ServiceCollection()
   .AddSingleton<IConfiguration>(config)
   .AddRnCoreMetrics()
-  .AddRnCoreMetricsInfluxDb()
+  .AddInfluxDbMetricOutput()
   .BuildServiceProvider();
 
 var metricsService = serviceProvider.GetRequiredService<IMetricsService>();
