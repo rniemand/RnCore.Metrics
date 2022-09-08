@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="InfluxDB.Client" Version="4.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\RnCore.Metrics\RnCore.Metrics.csproj" />
+    <ProjectReference Include="..\RnCore.Metrics.InfluxDb\RnCore.Metrics.InfluxDb.csproj" />
   </ItemGroup>
 
   <ItemGroup>
