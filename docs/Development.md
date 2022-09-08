@@ -1,7 +1,7 @@
 # Development
 Collection of notes to get up and running with the development process.
 
-## Build and Testing
+## Build & Testing
 
 ```shell
 .\ci-build.ps1 -project "RnCore.Metrics"

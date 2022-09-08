@@ -1,6 +1,6 @@
 - [Home](./)
 - [Development](./development.md)
-- [External Projects](./external-projects.md)
+- [External](./external.md)
 - **Builders**
   - [BaseMetricBuilder](./builders/BaseMetricBuilder.md)
   - [BaseMetricBuilderExtensions](./builders/BaseMetricBuilderExtensions.md)
