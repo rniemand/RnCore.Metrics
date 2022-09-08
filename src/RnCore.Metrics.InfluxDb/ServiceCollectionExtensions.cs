@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using RnCore.Metrics.Outputs;
 
 namespace RnCore.Metrics.InfluxDb;
@@ -11,6 +11,6 @@ public static class ServiceCollectionExtensions
       services.AddSingleton<IInfluxDbOutputConfigProvider, InfluxDbOutputConfigProvider>();
 
     return services
-      .AddSingleton<IMetricOutput, InfluxDbOutput>();
+      .AddSingleton<IMetricOutput, InfluxDbMetricOutput>();
   }
 }
