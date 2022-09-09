@@ -4,6 +4,8 @@ Below is the complete list of all built-in metric builder extensions available t
 ## Fields
 The below methods are used to manipulate `fields` on a metric.
 
+Please refer to the **[Core Concepts](./concepts.md)** section for more information on `Field` and `Tags`.
+
 ### WithTiming()
 Provides an **[MetricTimingToken](./models/MetricTimingToken.md)** instance with the provided `field` name.
 
@@ -33,6 +35,8 @@ TBuilder WithField<TBuilder>(this TBuilder builder, string field, TimeSpan value
 
 ## Tags
 The below methods are used to manipulate `tags` on a metric.
+
+Please refer to the **[Core Concepts](./concepts.md)** section for more information on `Field` and `Tags`.
 
 ### WithTag()
 Sets the provided tag on the metric.

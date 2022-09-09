@@ -1,7 +1,6 @@
 # Custom Metric Builders
 Creating a custom metric builder for your project is as simple as following the below steps.
 
-## Complete Example
 <!-- tabs:start -->
 #### **Step: 1**
 Create your metric builder class and be sure to impliment `CoreMetricBuilder<TClass>`.
@@ -123,39 +122,7 @@ await _metricsService.SubmitAsync(builder);
    - value: `~125` (long)
    - timing2: `~125` (long)
 
+#### **Notes**
+Be sure to refer to the [BaseMetricBuilder](./builders/BaseMetricBuilder.md) documentation for a list of helper methods.
+
 <!-- tabs:end -->
-
-## Helper Methods
-The abstract `BaseMetricBuilder` class exposes some helper composition methods that can be called by your builder, namely:
-
-### AddAction()
-Allows you to enqueue an `Action<RnMetric>` that will be executed when `.Build()` is called.
-
-```cs
-IBaseMetricBuilder<TBuilder> AddAction(Action<RnMetric> action) {}
-```
-
-> [!NOTE]
-> These actions are processed in the order that the are recieved.
-
-### SetSuccess()
-Allows you to set the value of the `success` tag.
-
-```cs
-void SetSuccess(bool success) {}
-```
-
-### SetException()
-Used to set the values of the `has_ex` and `ex_name` tags.
-
-```cs
-void SetException(Exception ex) {}
-void SetException(string exceptionName) {}
-```
-
-### Build()
-Used to generate the final metric applying all queued `Action<RnMetric>` entries in the order that they were supplied.
-
-```cs
-virtual RnMetric Build() {}
-```

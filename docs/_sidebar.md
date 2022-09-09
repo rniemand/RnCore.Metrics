@@ -1,4 +1,6 @@
 - [Home](./)
+- [Core Concepts](./concepts.md)
+- [Configuration](./configuration.md)
 - [Development](./development.md)
 - [External](./external.md)
 - **Builders**
