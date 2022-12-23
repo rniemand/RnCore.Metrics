@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RnCore.Metrics\RnCore.Metrics.csproj" />
+    <ProjectReference Include="..\..\src\RnCore.Metrics\RnCore.Metrics.csproj" />
   </ItemGroup>
 
 </Project>

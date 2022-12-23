@@ -13,7 +13,7 @@ param (
 )
 
 $rootDir               = [IO.Path]::GetFullPath((Join-Path $rootDir "\..\"));
-$sourceDir             = Join-Path $rootDir "src\"; # tests\
+$sourceDir             = Join-Path $rootDir "tests\";
 $publishDir            = Join-Path $rootDir "artifacts\";
 $toolsDir              = Join-Path $rootDir "tools\";
 $testPublishDir        = Join-Path $publishDir "test-publish\";
