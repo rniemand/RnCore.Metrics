@@ -2,9 +2,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace RnCore.Metrics.Models;
 
-public class RnCoreMetricsConfig
+public class MetricsConfig
 {
-  public const string ConfigKey = "Rn.Metrics";
+  public const string ConfigKey = "RnCore.Metrics";
 
   [ConfigurationKeyName("enabled")]
   public bool Enabled { get; set; }

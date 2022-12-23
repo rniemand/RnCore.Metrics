@@ -4,7 +4,7 @@ Simple metrics solution for my applications.
 
 ## Basic Usage
 
-Using the [MetricsService](./services/MetricsService.md) is as simple as: `Registration`, `Injection` and `Submitting`.
+Using the [MetricsService](./models/MetricsService.md) is as simple as: `Registration`, `Injection` and `Submitting`.
 
 <!-- tabs:start -->
 

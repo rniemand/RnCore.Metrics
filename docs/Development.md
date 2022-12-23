@@ -1,7 +1,7 @@
 # Development
 Collection of notes to get up and running with the development process.
 
-## Build and Testing
+## Build & Testing
 
 ```shell
 .\ci-build.ps1 -project "RnCore.Metrics"
@@ -16,12 +16,3 @@ docsify serve docs
 - [Themes](https://docsify.js.org/#/themes) - how to use themes
 - [Code Highlighting](https://docsify.js.org/#/language-highlight) - ([grammar files](https://cdn.jsdelivr.net/npm/prismjs@1/components/))
 - [Plugins](https://docsify.js.org/#/awesome?id=plugins)
-
-## Deployment
-
-### GitHub Actions
-
-- `NUGET_API_KEY` = xxx
-- `SONAR_PROJECT` = xxx
-- `SONAR_HOST_URL` = xxx
-- `SONAR_TOKEN` = xxx

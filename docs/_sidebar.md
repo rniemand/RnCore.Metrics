@@ -1,18 +1,19 @@
 - [Home](./)
-- [Development](./Development.md)
-- [External Projects](./external-projects.md)
+- [Core Concepts](./concepts.md)
+- [Configuration](./configuration.md)
+- [Development](./development.md)
+- [External](./external.md)
 - **Builders**
   - [BaseMetricBuilder](./builders/BaseMetricBuilder.md)
   - [BaseMetricBuilderExtensions](./builders/BaseMetricBuilderExtensions.md)
   - [Custom Metric Builders](./builders/CustomBuilder.md)
   - [Custom Metric Builder Extensions](./builders/CustomBuilderExtensions.md)
-- **Models**
+- **Models & Interfaces**
+  - [IMetricOutput](./models/IMetricOutput.md)
   - [RnMetric](./models/RnMetric.md)
-  - [RnCoreMetricsConfig](./models/RnCoreMetricsConfig.md)
+  - [MetricsConfig](./models/MetricsConfig.md)
   - [MetricTimingToken](./models/MetricTimingToken.md)
+  - [MetricsService](./models/MetricsService.md)
 - **Outputs**
-  - [IMetricOutput](./outputs/IMetricOutput.md)
   - [ConsoleMetricOutput](./outputs/ConsoleMetricOutput.md)
   - [InfluxDbMetricOutput](./outputs/InfluxDbMetricOutput.md)
-- **Services**
-  - [MetricsService](./services/MetricsService.md)

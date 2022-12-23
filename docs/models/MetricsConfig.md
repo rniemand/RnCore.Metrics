@@ -1,14 +1,14 @@
-# RnCoreMetricsConfig
+# MetricsConfig
 
 Global configuration used with **RnCore.Metrics**.
 
 ## JSON Configuration
 
-If you are using the default implimentation of the `IRnCoreMetricsConfigProvider`
+If you are using the default implimentation of the `IMetricsConfigProvider`
 
 ```json
 {
-  "Rn.Metrics": {
+  "RnCore.Metrics": {
     "application": "MyApplication",
     "enabled": true,
     "enableConsoleOutput": true,
@@ -41,12 +41,12 @@ The following values are available for use with the `template` value:
 > The default `{app}/{measurement}` template was chosen to separate application metrics sharing this library and can be overwritten if desired.
 
 ## Custom Configuration
-If you wish to provide your own configuration provider to use with `RnCore.Metrics` you can do so by overloading the `.AddRnCoreMetrics()` call along with registering your own implimentation of the `IRnCoreMetricsConfigProvider` configuration provider like so:
+If you wish to provide your own configuration provider to use with `RnCore.Metrics` you can do so by overloading the `.AddRnCoreMetrics()` call along with registering your own implimentation of the `IMetricsConfigProvider` configuration provider like so:
 
 ```cs
 ServiceProvider serviceProvider = new ServiceCollection()
   // ...
   .AddRnCoreMetrics(useDefaultConfigProvider: false)
-  .AddSingleton<IRnCoreMetricsConfigProvider, MyConfigurationProvider>()
+  .AddSingleton<IMetricsConfigProvider, MyConfigurationProvider>()
   .BuildServiceProvider();
 ```

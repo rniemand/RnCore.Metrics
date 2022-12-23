@@ -14,9 +14,8 @@ Register the output against your container:
 
 ```cs
 ServiceProvider serviceProvider = new ServiceCollection()
-  // ...
   .AddRnCoreMetrics()
-  .AddRnCoreMetricsInfluxDb()
+  .AddInfluxDbMetricOutput()
   .BuildServiceProvider();
 ```
 
@@ -24,7 +23,7 @@ Add in required configuration:
 
 ```json
 {
-  "Rn.Metrics.InfluxDb": {
+  "RnCore.Metrics.InfluxDb": {
     "token": "",
     "bucket": "default",
     "org": "",
@@ -41,9 +40,8 @@ Be sure to disable the default provider when calling `.AddRnCoreMetricsInfluxDb(
 
 ```cs
 ServiceProvider serviceProvider = new ServiceCollection()
-  // ...
   .AddRnCoreMetrics()
-  .AddRnCoreMetricsInfluxDb(useDefaultConfigProvider: false)
+  .AddInfluxDbMetricOutput(useDefaultConfigProvider: false)
   .AddSingleton<IInfluxDbOutputConfigProvider, MyConfigProvider>()
   .BuildServiceProvider();
 ```

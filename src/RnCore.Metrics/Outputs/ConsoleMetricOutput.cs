@@ -8,7 +8,7 @@ public class ConsoleMetricOutput : IMetricOutput
   public bool Enabled { get; }
   public string Name => nameof(ConsoleMetricOutput);
 
-  public ConsoleMetricOutput(IRnCoreMetricsConfigProvider configProvider)
+  public ConsoleMetricOutput(IMetricsConfigProvider configProvider)
   {
     Enabled = configProvider.Provide().EnableConsoleOutput;
   }

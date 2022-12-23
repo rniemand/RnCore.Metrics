@@ -18,14 +18,14 @@ public class MetricsService : IMetricsService
 {
   private readonly ILoggerAdapter<MetricsService> _logger;
   private readonly IDateTimeAbstraction _dateTime;
-  private readonly RnCoreMetricsConfig _config;
+  private readonly MetricsConfig _config;
   private readonly List<IMetricOutput> _outputs;
 
   public MetricsService(
     ILoggerAdapter<MetricsService> logger,
     IDateTimeAbstraction dateTime,
     IEnumerable<IMetricOutput> outputs,
-    IRnCoreMetricsConfigProvider configProvider)
+    IMetricsConfigProvider configProvider)
   {
     _logger = logger;
     _dateTime = dateTime;
@@ -42,6 +42,7 @@ public class MetricsService : IMetricsService
   }
 
 
+  // Public methods
   public void Submit<TBuilder>(IBaseMetricBuilder<TBuilder> builder)
   {
     if (!_config.Enabled)
@@ -81,6 +82,8 @@ public class MetricsService : IMetricsService
     await SubmitAsync(builder.Build());
   }
 
+
+  // Internal methods
   private List<IMetricOutput> LoadMetricOutputs(IEnumerable<IMetricOutput> outputs)
   {
     try

@@ -5,25 +5,25 @@ using RnCore.Metrics.Extensions;
 
 namespace RnCore.Metrics;
 
-public interface IRnCoreMetricsConfigProvider
+public interface IMetricsConfigProvider
 {
-  RnCoreMetricsConfig Provide();
+  MetricsConfig Provide();
 }
 
-public class RnCoreMetricsConfigProvider : IRnCoreMetricsConfigProvider
+public class MetricsConfigProvider : IMetricsConfigProvider
 {
-  private readonly RnCoreMetricsConfig _config;
+  private readonly MetricsConfig _config;
 
-  public RnCoreMetricsConfigProvider(IConfiguration configuration)
+  public MetricsConfigProvider(IConfiguration configuration)
   {
     _config = GetRnMetricsConfig(configuration);
   }
 
-  public RnCoreMetricsConfig Provide() => _config;
+  public MetricsConfig Provide() => _config;
 
-  private RnCoreMetricsConfig GetRnMetricsConfig(IConfiguration configuration)
+  private MetricsConfig GetRnMetricsConfig(IConfiguration configuration)
   {
-    RnCoreMetricsConfig coreMetricsConfig = BindMetricsConfig(configuration);
+    MetricsConfig coreMetricsConfig = BindMetricsConfig(configuration);
 
     // Ensure that a valid application name is defined
     if (string.IsNullOrWhiteSpace(coreMetricsConfig.Application))
@@ -48,11 +48,11 @@ public class RnCoreMetricsConfigProvider : IRnCoreMetricsConfigProvider
     return coreMetricsConfig;
   }
 
-  private static RnCoreMetricsConfig BindMetricsConfig(IConfiguration configuration)
+  private static MetricsConfig BindMetricsConfig(IConfiguration configuration)
   {
-    var boundConfig = new RnCoreMetricsConfig();
+    var boundConfig = new MetricsConfig();
 
-    IConfigurationSection? section = configuration.GetSection(RnCoreMetricsConfig.ConfigKey);
+    IConfigurationSection? section = configuration.GetSection(MetricsConfig.ConfigKey);
     if (!section.Exists())
       return boundConfig;
 
