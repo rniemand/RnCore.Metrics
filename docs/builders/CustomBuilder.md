@@ -3,10 +3,10 @@ Creating a custom metric builder for your project is as simple as following the 
 
 <!-- tabs:start -->
 #### **Step: 1**
-Create your metric builder class and be sure to impliment `CoreMetricBuilder<TClass>`.
+Create your metric builder class and be sure to impliment `BaseMetricBuilder<TClass>`.
 
 ```cs
-public sealed class CustomMetricBuilder : CoreMetricBuilder<CustomMetricBuilder>
+public sealed class CustomMetricBuilder : BaseMetricBuilder<CustomMetricBuilder>
 {
   public CustomMetricBuilder()
     : base("custom_metric")
