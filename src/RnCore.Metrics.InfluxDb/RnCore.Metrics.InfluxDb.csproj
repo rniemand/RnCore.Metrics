@@ -14,7 +14,7 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/rniemand/RnCore.Metrics</RepositoryUrl>
     <AssemblyName>RnCore.Metrics.InfluxDb</AssemblyName>
-    <Version>6.0.0.104</Version>
+    <Version>6.0.0.105</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="InfluxDB.Client" Version="4.9.0" />
-    <PackageReference Include="RnCore.Metrics" Version="6.0.0.101" />
+    <PackageReference Include="InfluxDB.Client" Version="4.12.0" />
+    <PackageReference Include="RnCore.Metrics" Version="6.0.0.104" />
   </ItemGroup>
 
 </Project>
